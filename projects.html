@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alex Chen's learning journey — five checkpoints from HTML basics to accessibility auditing.">
+  <title>Projects — Alex Chen</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main id="main-content" class="section container">
+    <h1 class="section-title">My Learning Journey</h1>
+    <p class="section-subtitle">Five weeks. Five checkpoints. One portfolio.</p>
+
+    <div class="filter-tabs" role="group" aria-label="Filter by week">
+      <button class="filter-tab" data-week="all" aria-pressed="true">All</button>
+      <button class="filter-tab" data-week="1" aria-pressed="false">Week 1</button>
+      <button class="filter-tab" data-week="2" aria-pressed="false">Week 2</button>
+      <button class="filter-tab" data-week="3" aria-pressed="false">Week 3</button>
+      <button class="filter-tab" data-week="4" aria-pressed="false">Week 4</button>
+      <button class="filter-tab" data-week="5" aria-pressed="false">Week 5</button>
+    </div>
+
+    <div class="timeline">
+
+      <article class="checkpoint-card reveal" data-week="1" aria-labelledby="cp1-title">
+        <div class="checkpoint-dot" style="background:#8b84ff;" aria-hidden="true">1</div>
+        <div class="checkpoint-inner">
+          <div class="checkpoint-meta">
+            <span class="checkpoint-week" style="color:#8b84ff;">Week 1 · HTML</span>
+            <span class="checkpoint-badge" style="background:rgba(139,132,255,0.15);color:#8b84ff;">Checkpoint 1.1</span>
+          </div>
+          <h2 class="checkpoint-title" id="cp1-title">Laying the Foundation</h2>
+          <p class="checkpoint-desc">Built the HTML skeleton — semantic elements, proper heading hierarchy, nav, main, footer. First time I realised how much structure matters before a single line of CSS.</p>
+          <div class="checkpoint-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">Semantic markup</span>
+            <span class="tag">Accessibility</span>
+            <span class="tag">Git</span>
+          </div>
+          <a class="checkpoint-link" href="checkpoint-1.html">View details →</a>
+        </div>
+      </article>
+
+      <article class="checkpoint-card reveal" data-week="2" aria-labelledby="cp2-title">
+        <div class="checkpoint-dot" style="background:#9c8fff;" aria-hidden="true">2</div>
+        <div class="checkpoint-inner">
+          <div class="checkpoint-meta">
+            <span class="checkpoint-week" style="color:#9c8fff;">Week 2 · CSS</span>
+            <span class="checkpoint-badge" style="background:rgba(156,143,255,0.15);color:#9c8fff;">Checkpoint 1.2</span>
+          </div>
+          <h2 class="checkpoint-title" id="cp2-title">Style &amp; Responsiveness</h2>
+          <p class="checkpoint-desc">Added the dark theme, CSS custom properties, flexbox layouts. The mobile-first approach broke my brain at first — but media queries finally clicked.</p>
+          <div class="checkpoint-tags">
+            <span class="tag">CSS3</span>
+            <span class="tag">Flexbox</span>
+            <span class="tag">CSS Grid</span>
+            <span class="tag">Custom Properties</span>
+            <span class="tag">Media Queries</span>
+          </div>
+          <a class="checkpoint-link" href="checkpoint-2.html">View details →</a>
+        </div>
+      </article>
+
+      <article class="checkpoint-card reveal" data-week="3" aria-labelledby="cp3-title">
+        <div class="checkpoint-dot" style="background:#c063b0;" aria-hidden="true">3</div>
+        <div class="checkpoint-inner">
+          <div class="checkpoint-meta">
+            <span class="checkpoint-week" style="color:#c063b0;">Week 3 · JavaScript</span>
+            <span class="checkpoint-badge" style="background:rgba(192,99,176,0.15);color:#c063b0;">Checkpoint 1.3</span>
+          </div>
+          <h2 class="checkpoint-title" id="cp3-title">Making Things Move</h2>
+          <p class="checkpoint-desc">Event listeners, DOM manipulation, the typing hero animation. Spent a whole evening debugging why my scroll reveal wasn't firing — turned out I had the threshold backwards.</p>
+          <div class="checkpoint-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">DOM API</span>
+            <span class="tag">IntersectionObserver</span>
+            <span class="tag">Event Listeners</span>
+          </div>
+          <a class="checkpoint-link" href="checkpoint-3.html">View details →</a>
+        </div>
+      </article>
+
+      <article class="checkpoint-card reveal" data-week="4" aria-labelledby="cp4-title">
+        <div class="checkpoint-dot" style="background:#e0656a;" aria-hidden="true">4</div>
+        <div class="checkpoint-inner">
+          <div class="checkpoint-meta">
+            <span class="checkpoint-week" style="color:#e0656a;">Week 4 · API</span>
+            <span class="checkpoint-badge" style="background:rgba(224,101,106,0.15);color:#e0656a;">Checkpoint 1.4</span>
+          </div>
+          <h2 class="checkpoint-title" id="cp4-title">Connecting to the World</h2>
+          <p class="checkpoint-desc">Fetched live data from the Open Library API — async/await, error handling, dynamic card rendering. The bookshelf page came alive the moment the covers loaded.</p>
+          <div class="checkpoint-tags">
+            <span class="tag">Fetch API</span>
+            <span class="tag">async/await</span>
+            <span class="tag">JSON</span>
+            <span class="tag">Open Library</span>
+            <span class="tag">Error Handling</span>
+          </div>
+          <a class="checkpoint-link" href="checkpoint-4.html">View details →</a>
+        </div>
+      </article>
+
+      <article class="checkpoint-card reveal" data-week="5" aria-labelledby="cp5-title">
+        <div class="checkpoint-dot" style="background:#ff6584;" aria-hidden="true">5</div>
+        <div class="checkpoint-inner">
+          <div class="checkpoint-meta">
+            <span class="checkpoint-week" style="color:#ff6584;">Week 5 · Accessibility</span>
+            <span class="checkpoint-badge" style="background:rgba(255,101,132,0.15);color:#ff6584;">Final Polish</span>
+          </div>
+          <h2 class="checkpoint-title" id="cp5-title">Building for Everyone</h2>
+          <p class="checkpoint-desc">Lighthouse audit, ARIA labels, keyboard navigation, focus rings, colour contrast fixes. Went from a Lighthouse score of 71 to 96 — before/after screenshots included.</p>
+          <div class="checkpoint-tags">
+            <span class="tag">ARIA</span>
+            <span class="tag">WCAG 2.1</span>
+            <span class="tag">Lighthouse</span>
+            <span class="tag">Focus Management</span>
+            <span class="tag">Colour Contrast</span>
+          </div>
+          <a class="checkpoint-link" href="checkpoint-5.html">View details →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/nav.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>

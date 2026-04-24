@@ -2,7 +2,7 @@
 
 A personal portfolio documenting my journey through the Web Fundamentals unit at Curtin University.
 
-**Live site:** https://michaelborck.github.io/web-portfolio/
+**Live site:** https://michael-borck.github.io/isys3004-a1-sample-2/
 
 Built with vanilla HTML, CSS, and JavaScript — no frameworks.
 

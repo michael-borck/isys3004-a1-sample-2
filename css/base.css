@@ -5,8 +5,8 @@
   --bg-border:     #2a2a4a;
   --text-primary:  #e0e0ff;
   --text-secondary:#a0a0d0;
-  --text-muted:    #666;
-  --accent-purple: #6c63ff;
+  --text-muted:    #7a7aa8;
+  --accent-purple: #8b84ff;
   --accent-coral:  #ff6584;
   --gradient:      linear-gradient(135deg, #6c63ff, #ff6584);
   --radius:        8px;
@@ -56,6 +56,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   height: var(--nav-height);
   padding: 0 1.5rem;
   background: rgba(15, 15, 26, 0.92);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--bg-border);
 }
@@ -121,9 +122,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     gap: 2.5rem;
     font-size: 1.25rem;
     transform: translateX(100%);
-    transition: transform var(--transition);
+    visibility: hidden;
+    z-index: 99;
+    transition: transform var(--transition), visibility var(--transition);
   }
-  .nav-open .nav-links { transform: translateX(0); }
+  .nav-open .nav-links { transform: translateX(0); visibility: visible; }
   .nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
   .nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -191,6 +194,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   color: #fff;
 }
 .btn-outline {
+  background: transparent;
   border: 1px solid var(--bg-border);
   color: var(--text-primary);
 }
@@ -206,6 +210,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   transform: translateY(0);
 }
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
 

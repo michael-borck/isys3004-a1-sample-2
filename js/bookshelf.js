@@ -17,20 +17,20 @@ function bookCardHTML({ isbn, title, author, year, coverId }) {
     : coverId
       ? `https://covers.openlibrary.org/b/id/${coverId}-M.jpg`
       : '';
-  const escapedTitle = title.replace(/"/g, '&quot;');
+  const escapedTitle = title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   return `
     <article class="book-card">
       <div class="book-cover-wrap">
         ${imgSrc
           ? `<img class="book-cover" src="${imgSrc}" alt="Cover of ${escapedTitle}" loading="lazy"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-             <div class="book-cover-fallback" style="display:none" role="img" aria-label="No cover available for ${escapedTitle}">${title}</div>`
-          : `<div class="book-cover-fallback" role="img" aria-label="No cover available for ${escapedTitle}">${title}</div>`
+             <div class="book-cover-fallback" style="display:none" role="img" aria-label="No cover available for ${escapedTitle}">${escapedTitle}</div>`
+          : `<div class="book-cover-fallback" role="img" aria-label="No cover available for ${escapedTitle}">${escapedTitle}</div>`
         }
       </div>
       <div class="book-info">
-        <p class="book-title">${title}</p>
-        <p class="book-author">${author || 'Unknown author'}</p>
+        <p class="book-title">${escapedTitle}</p>
+        <p class="book-author">${(author || 'Unknown author').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
         ${year ? `<p class="book-year">${year}</p>` : ''}
       </div>
     </article>`;

@@ -4,20 +4,24 @@ let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 const typedEl = document.getElementById('typed-text');
+const announcerEl = document.getElementById('role-announcement');
 
 function type() {
   if (!typedEl) return;
   const current = roles[roleIndex];
-  typedEl.textContent = isDeleting
-    ? current.slice(0, charIndex--)
-    : current.slice(0, charIndex++);
 
-  if (!isDeleting && charIndex > current.length) {
+  if (!isDeleting) charIndex++;
+  else charIndex--;
+  typedEl.textContent = current.slice(0, charIndex);
+
+  if (!isDeleting && charIndex === current.length) {
+    // Announce completed word to screen readers
+    if (announcerEl) announcerEl.textContent = current;
     isDeleting = true;
     setTimeout(type, 1800);
     return;
   }
-  if (isDeleting && charIndex < 0) {
+  if (isDeleting && charIndex === 0) {
     isDeleting = false;
     roleIndex = (roleIndex + 1) % roles.length;
     setTimeout(type, 400);

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Alex Chen — career changer, web development student, and lifelong learner.">
+  <title>About — Alex Chen</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main id="main-content" class="section container">
+
+    <div class="profile-block reveal">
+      <div class="avatar" aria-hidden="true">AC</div>
+      <div class="profile-info">
+        <h1>Alex Chen</h1>
+        <p class="role">Web Developer in Training</p>
+        <p>Curtin University · Web Fundamentals</p>
+      </div>
+    </div>
+
+    <section class="story reveal" aria-labelledby="story-heading">
+      <h2 class="section-title" id="story-heading">My Story</h2>
+      <p>I spent four years as a marketing coordinator, writing briefs and managing campaigns — but I kept finding myself in meetings asking "wait, why can't we just change the website?" Eventually I decided to stop asking and start learning.</p>
+      <p>Web development appealed to me because it sits at the intersection of logic and creativity. I like that there's always a right answer when something is broken, but there are a thousand ways to make something beautiful. Coming from marketing, I already think in terms of audience and purpose — now I'm learning to express that through code.</p>
+      <p>This portfolio documents my first unit of study. It's not perfect — but it's genuinely mine, built one checkpoint at a time, with real stumbling blocks and real fixes along the way.</p>
+    </section>
+
+    <section class="subsection" aria-labelledby="skills-heading">
+      <h2 class="section-title" id="skills-heading">Skills So Far</h2>
+      <p class="section-subtitle">Honest self-assessment after 5 weeks.</p>
+      <div class="skills-list reveal">
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span>HTML5</span><span>75%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%;" role="img" aria-label="HTML5 proficiency 75%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span>CSS3 &amp; Responsive Design</span><span>65%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%;" role="img" aria-label="CSS3 proficiency 65%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span>JavaScript</span><span>50%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:50%;" role="img" aria-label="JavaScript proficiency 50%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span>APIs &amp; Fetch</span><span>45%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:45%;" role="img" aria-label="APIs proficiency 45%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span>Git &amp; Version Control</span><span>60%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:60%;" role="img" aria-label="Git proficiency 60%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="subsection" aria-labelledby="milestones-heading">
+      <h2 class="section-title" id="milestones-heading">Milestones</h2>
+      <div class="milestones reveal">
+        <div class="milestone">
+          <div class="milestone-dot" aria-hidden="true"></div>
+          <div>
+            <h3>Week 1 — First commit</h3>
+            <p>Wrote my first semantic HTML page and pushed it to GitHub. Spent 20 minutes confused about what "staging" meant.</p>
+          </div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-dot" aria-hidden="true"></div>
+          <div>
+            <h3>Week 3 — First deployed site</h3>
+            <p>Got GitHub Pages working. Seeing my own URL in a browser on my phone was genuinely exciting.</p>
+          </div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-dot" aria-hidden="true"></div>
+          <div>
+            <h3>Week 5 — Lighthouse score 96</h3>
+            <p>Passed an accessibility audit. Went from 71 to 96 by fixing contrast, adding ARIA labels, and finally understanding what a skip link is for.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="subsection" aria-labelledby="ack-heading">
+      <h2 class="section-title" id="ack-heading">Acknowledgements</h2>
+      <div class="ack-box reveal">
+        <h3>Tools &amp; Resources Used</h3>
+        <ul class="ack-list">
+          <li>Claude (Anthropic) — code suggestions, debugging, explaining concepts</li>
+          <li>MDN Web Docs — primary reference for HTML, CSS, and JavaScript</li>
+          <li>CSS-Tricks — flexbox and grid guides</li>
+          <li>WebAIM — colour contrast checker and accessibility guidance</li>
+          <li>Open Library API — book data and cover images for the Bookshelf page</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/nav.js"></script>
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const obs = new IntersectionObserver(
+        entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+  </script>
+</body>
+</html>

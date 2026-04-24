@@ -12,14 +12,14 @@
   font-weight: 700;
   cursor: pointer;
   border: 1px solid var(--bg-border);
-  color: var(--text-muted);
+  color: var(--text-secondary);
   background: var(--bg-card);
   transition: all var(--transition);
 }
 .filter-tab[aria-pressed="true"] {
   background: var(--accent-purple);
   border-color: var(--accent-purple);
-  color: #fff;
+  color: #0f0f1a;
 }
 .filter-tab:hover:not([aria-pressed="true"]) {
   border-color: var(--accent-purple);

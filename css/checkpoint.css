@@ -1,0 +1,131 @@
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--accent-purple); }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb span { color: var(--text-muted); }
+
+/* ===== CHECKPOINT HEADER ===== */
+.cp-header { margin-bottom: 3rem; }
+.cp-week-number {
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: var(--accent-purple);
+  margin-bottom: 0.5rem;
+}
+.cp-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+}
+.cp-title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.cp-section {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.cp-section h2 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+.cp-section p { font-size: 0.9375rem; line-height: 1.75; }
+.cp-section ul { display: flex; flex-direction: column; gap: 0.625rem; }
+.cp-section li {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  position: relative;
+}
+.cp-section li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-purple);
+}
+
+/* ===== CODE BLOCK ===== */
+.cp-code {
+  background: #080810;
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+.cp-code-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent-purple);
+  margin-bottom: 0.75rem;
+}
+.cp-code pre {
+  margin: 0;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: #c9d1d9;
+  white-space: pre;
+}
+
+/* ===== CHALLENGE BOX ===== */
+.cp-challenge {
+  border-left: 3px solid var(--accent-coral);
+  padding-left: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.cp-challenge h2 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--accent-coral);
+  margin-bottom: 0.5rem;
+}
+.cp-challenge p { font-size: 0.9375rem; line-height: 1.75; }
+
+/* ===== NAV ARROWS ===== */
+.cp-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--bg-border);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.cp-nav a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-purple);
+  transition: color var(--transition);
+}
+.cp-nav a:hover { color: var(--text-primary); }
+.cp-nav .back-link { color: var(--text-muted); }
+.cp-nav .back-link:hover { color: var(--text-primary); }

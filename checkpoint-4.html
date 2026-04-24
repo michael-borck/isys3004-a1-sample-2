@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Week 4: API integration with Open Library — Alex Chen's fourth checkpoint.">
+  <title>Week 4: Connecting to the World — Alex Chen</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/checkpoint.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main id="main-content" class="section container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="projects.html">Projects</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Week 4</span>
+    </nav>
+    <header class="cp-header">
+      <div class="cp-week-number" aria-hidden="true">04</div>
+      <span class="cp-badge" style="background:rgba(224,101,106,0.15);color:#e0656a;">Checkpoint 1.4 · API Integration</span>
+      <h1 class="cp-title">Connecting to the World</h1>
+    </header>
+    <div class="cp-section reveal">
+      <h2>What I Built</h2>
+      <p>The Dev Bookshelf page — fetches real book data and cover images from the Open Library API. On page load it renders 6 curated favourites. A search bar lets users find any book via a live API query, with debouncing to avoid hammering the server on every keystroke.</p>
+    </div>
+    <div class="cp-section reveal">
+      <h2>What I Learned</h2>
+      <ul>
+        <li><code>async/await</code> makes asynchronous code read like synchronous code — much easier than promise chains once it clicks.</li>
+        <li>Always wrap <code>fetch()</code> calls in try/catch. Networks fail. APIs go down. Users need a useful error message, not a blank page.</li>
+        <li>Debouncing means "wait until the user stops typing before making the API call". A 400ms delay avoids 20 requests for a single search.</li>
+        <li>Open Library's cover image URL is just <code>https://covers.openlibrary.org/b/isbn/{isbn}-M.jpg</code> — no auth required.</li>
+      </ul>
+    </div>
+    <div class="cp-code reveal">
+      <p class="cp-code-label">Code highlight — async fetch with error handling</p>
+      <pre><code>async function searchBooks(query) {
+  const resultsEl = document.getElementById('search-results');
+  resultsEl.innerHTML = '&lt;p class="loading"&gt;Searching...&lt;/p&gt;';
+  try {
+    const url = `https://openlibrary.org/search.json` +
+                `?q=${encodeURIComponent(query)}` +
+                `&fields=title,author_name,cover_i,first_publish_year` +
+                `&limit=12`;
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    renderBooks(data.docs, resultsEl);
+  } catch (err) {
+    resultsEl.innerHTML =
+      `&lt;p class="error"&gt;Could not load results. Try again.&lt;/p&gt;`;
+  }
+}</code></pre>
+    </div>
+    <div class="cp-challenge reveal">
+      <h2>Challenge &amp; Fix</h2>
+      <p><strong>Problem:</strong> Some books had no cover image. My <code>&lt;img&gt;</code> tags showed broken image icons.<br><br><strong>Fix:</strong> Added an <code>onerror</code> handler on each image: if the cover fails to load, swap the <code>src</code> to a CSS-only placeholder with the book title as text. Also added a <code>loading="lazy"</code> attribute to defer off-screen cover loads.</p>
+    </div>
+    <div class="cp-section reveal">
+      <h2>Skills Gained</h2>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <span class="tag">Fetch API</span>
+        <span class="tag">async/await</span>
+        <span class="tag">try/catch</span>
+        <span class="tag">JSON parsing</span>
+        <span class="tag">Debouncing</span>
+        <span class="tag">Dynamic DOM rendering</span>
+        <span class="tag">REST APIs</span>
+      </div>
+    </div>
+    <nav class="cp-nav" aria-label="Checkpoint navigation">
+      <a href="checkpoint-3.html">← Week 3: Making Things Move</a>
+      <a href="checkpoint-5.html">Week 5: Building for Everyone →</a>
+    </nav>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/nav.js"></script>
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const obs = new IntersectionObserver(
+        entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+  </script>
+</body>
+</html>

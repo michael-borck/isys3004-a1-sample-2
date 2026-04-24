@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Week 1: Semantic HTML structure — Alex Chen's first checkpoint.">
+  <title>Week 1: Laying the Foundation — Alex Chen</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/checkpoint.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main id="main-content" class="section container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="projects.html">Projects</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Week 1</span>
+    </nav>
+    <header class="cp-header">
+      <div class="cp-week-number" aria-hidden="true">01</div>
+      <span class="cp-badge" style="background:rgba(139,132,255,0.15);color:#8b84ff;">Checkpoint 1.1 · HTML Structure</span>
+      <h1 class="cp-title">Laying the Foundation</h1>
+    </header>
+    <div class="cp-section reveal">
+      <h2>What I Built</h2>
+      <p>A fully structured HTML portfolio skeleton with semantic elements throughout — no CSS, no JavaScript, just clean markup. Every page had a proper <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code>. Headings followed a strict hierarchy starting with a single <code>&lt;h1&gt;</code>. The nav linked all pages together.</p>
+    </div>
+    <div class="cp-section reveal">
+      <h2>What I Learned</h2>
+      <ul>
+        <li>Semantic HTML isn't just about how it looks — it communicates meaning to browsers, search engines, and screen readers.</li>
+        <li>A page should have exactly one <code>&lt;h1&gt;</code>. I had three at first. That matters for accessibility.</li>
+        <li>The difference between <code>&lt;div&gt;</code> and <code>&lt;section&gt;</code> and <code>&lt;article&gt;</code> is about semantics, not layout.</li>
+        <li>Git staging area confused me for a full hour. <code>git add</code> then <code>git commit</code> — now it makes sense.</li>
+      </ul>
+    </div>
+    <div class="cp-code reveal">
+      <p class="cp-code-label">Code highlight — semantic page structure</p>
+      <pre><code>&lt;body&gt;
+  &lt;header&gt;
+    &lt;nav aria-label="Main navigation"&gt;
+      &lt;a href="index.html"&gt;Home&lt;/a&gt;
+      &lt;a href="about.html"&gt;About&lt;/a&gt;
+      &lt;a href="projects.html"&gt;Projects&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;main id="main-content"&gt;
+    &lt;h1&gt;Alex Chen — Web Developer&lt;/h1&gt;
+    &lt;section aria-labelledby="about-heading"&gt;
+      &lt;h2 id="about-heading"&gt;About Me&lt;/h2&gt;
+      &lt;p&gt;...&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2026 Alex Chen&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+    </div>
+    <div class="cp-challenge reveal">
+      <h2>Challenge &amp; Fix</h2>
+      <p><strong>Problem:</strong> I kept writing <code>&lt;div class="nav"&gt;</code> out of habit from tutorials. My tutor pointed out that <code>&lt;nav&gt;</code> exists for exactly this reason — divs with class names are invisible to assistive technology.<br><br><strong>Fix:</strong> Replaced all structural divs with the correct semantic element. Added <code>aria-label</code> attributes where there were multiple nav landmarks on the page.</p>
+    </div>
+    <div class="cp-section reveal">
+      <h2>Skills Gained</h2>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <span class="tag">HTML5</span>
+        <span class="tag">Semantic elements</span>
+        <span class="tag">Heading hierarchy</span>
+        <span class="tag">ARIA landmarks</span>
+        <span class="tag">Git basics</span>
+        <span class="tag">GitHub</span>
+      </div>
+    </div>
+    <nav class="cp-nav" aria-label="Checkpoint navigation">
+      <a class="back-link" href="projects.html">← Back to Projects</a>
+      <a href="checkpoint-2.html">Week 2: Style &amp; Responsiveness →</a>
+    </nav>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/nav.js"></script>
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const obs = new IntersectionObserver(
+        entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Week 3: JavaScript, DOM manipulation, and event listeners — Alex Chen's third checkpoint.">
+  <title>Week 3: Making Things Move — Alex Chen</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/checkpoint.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main id="main-content" class="section container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="projects.html">Projects</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Week 3</span>
+    </nav>
+    <header class="cp-header">
+      <div class="cp-week-number" aria-hidden="true">03</div>
+      <span class="cp-badge" style="background:rgba(192,99,176,0.15);color:#c063b0;">Checkpoint 1.3 · JavaScript</span>
+      <h1 class="cp-title">Making Things Move</h1>
+    </header>
+    <div class="cp-section reveal">
+      <h2>What I Built</h2>
+      <p>Added JavaScript interactivity to the portfolio: a typing animation on the home page hero, scroll-reveal animations using <code>IntersectionObserver</code>, and the hamburger nav toggle. Also built the project filter tabs that dim non-selected checkpoint cards.</p>
+    </div>
+    <div class="cp-section reveal">
+      <h2>What I Learned</h2>
+      <ul>
+        <li><code>document.querySelectorAll()</code> returns a NodeList — you can use <code>forEach()</code> directly on it in modern browsers.</li>
+        <li><code>IntersectionObserver</code> is how modern scroll animations work — it's much better than listening to the <code>scroll</code> event.</li>
+        <li>The typing animation is just a <code>setTimeout</code> loop that slices strings. Once I understood that, it felt obvious.</li>
+        <li>Always check <code>prefers-reduced-motion</code> before applying animations — not everyone wants things moving on screen.</li>
+      </ul>
+    </div>
+    <div class="cp-code reveal">
+      <p class="cp-code-label">Code highlight — IntersectionObserver scroll reveal</p>
+      <pre><code>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+  });
+}</code></pre>
+    </div>
+    <div class="cp-challenge reveal">
+      <h2>Challenge &amp; Fix</h2>
+      <p><strong>Problem:</strong> My scroll reveal wasn't triggering. Elements stayed invisible forever. I spent an evening on it.<br><br><strong>Fix:</strong> I had set <code>threshold: 0.9</code>, meaning the element had to be 90% visible before triggering. On mobile, some elements were taller than the viewport, so they never hit 90%. Changed to <code>0.15</code> — fire when 15% visible. Obvious in hindsight.</p>
+    </div>
+    <div class="cp-section reveal">
+      <h2>Skills Gained</h2>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <span class="tag">JavaScript ES6+</span>
+        <span class="tag">DOM manipulation</span>
+        <span class="tag">Event listeners</span>
+        <span class="tag">IntersectionObserver</span>
+        <span class="tag">setTimeout</span>
+        <span class="tag">prefers-reduced-motion</span>
+      </div>
+    </div>
+    <nav class="cp-nav" aria-label="Checkpoint navigation">
+      <a href="checkpoint-2.html">← Week 2: Style &amp; Responsiveness</a>
+      <a href="checkpoint-4.html">Week 4: Connecting to the World →</a>
+    </nav>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/nav.js"></script>
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const obs = new IntersectionObserver(
+        entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+  </script>
+</body>
+</html>

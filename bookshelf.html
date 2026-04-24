@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alex Chen's dev bookshelf — favourite web development books, powered by Open Library.">
+  <title>Bookshelf — Alex Chen</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/bookshelf.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main id="main-content" class="section container">
+    <h1 class="section-title">Dev Bookshelf</h1>
+    <p class="section-subtitle">Books shaping my thinking as I learn to code. Covers and data from <a href="https://openlibrary.org" style="color:var(--accent-purple)">Open Library</a>.</p>
+
+    <div class="search-wrap">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input
+        class="search-input"
+        id="book-search"
+        type="search"
+        placeholder="Search for any book..."
+        aria-label="Search books"
+        autocomplete="off"
+      >
+    </div>
+
+    <div
+      id="search-results"
+      class="book-grid"
+      aria-live="polite"
+      aria-label="Search results"
+      style="margin-bottom:3rem;"
+    ></div>
+
+    <h2 class="shelf-section-title">My Favourites</h2>
+    <div id="curated-grid" class="book-grid"></div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/nav.js"></script>
+  <script src="js/bookshelf.js"></script>
+</body>
+</html>

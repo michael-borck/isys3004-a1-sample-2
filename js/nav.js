@@ -25,6 +25,10 @@
         <a href="contact.html">Contact</a>
       </nav>
       <p>Built with vanilla HTML, CSS &amp; JavaScript &mdash; Alex Chen &copy; 2026</p>
+      <p class="footer-disclaimer">
+        <strong>Staff exemplar:</strong> Alex Chen is a fictional persona created for teaching purposes.
+        This site was built with AI assistance (Claude, Anthropic) and human review and verification.
+      </p>
     </footer>`;
 
   // Inject header

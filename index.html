@@ -3,15 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alex Chen — Web developer in training. Marketing coordinator turned coder. Follow my learning journey.">
   <title>Alex Chen — Web Developer</title>
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
   <header id="site-header"></header>
+
   <main id="main-content">
-    <p style="padding:2rem;color:white;">Nav test — will be replaced in Task 4</p>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <span class="hero-badge" aria-hidden="true">Available for opportunities</span>
+      <h1 class="hero-title" id="hero-heading">
+        Hi, I'm <span class="gradient-text">Alex Chen</span>
+      </h1>
+      <p class="hero-role" aria-live="polite" aria-label="Role">
+        <span id="typed-text">Web Developer</span><span class="cursor" aria-hidden="true">|</span>
+      </p>
+      <p class="hero-tagline">
+        Marketing coordinator turned web developer. I build clean, accessible websites and document every step of the journey — including the mistakes.
+      </p>
+      <div class="hero-ctas">
+        <a href="projects.html" class="btn btn-primary">View My Work</a>
+        <a href="about.html" class="btn btn-outline">About Me</a>
+      </div>
+    </section>
+
+    <!-- Skills strip -->
+    <div class="skills-strip" aria-label="Core skills">
+      <div class="skill-item">
+        <span class="skill-name" style="color:#8b84ff;">HTML5</span>
+        <span class="skill-label">Semantic</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name" style="color:#9c8fff;">CSS3</span>
+        <span class="skill-label">Responsive</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name" style="color:#c063b0;">JavaScript</span>
+        <span class="skill-label">Vanilla</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name" style="color:#ff6584;">APIs</span>
+        <span class="skill-label">Fetch / REST</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name" style="color:#f0c040;">a11y</span>
+        <span class="skill-label">WCAG 2.1</span>
+      </div>
+    </div>
+
+    <!-- Featured -->
+    <section class="section container" aria-labelledby="featured-heading">
+      <h2 class="section-title" id="featured-heading">What I've Been Building</h2>
+      <p class="section-subtitle">Five weeks, five checkpoints, one portfolio.</p>
+      <div class="featured-grid">
+        <article class="featured-card reveal">
+          <p class="card-eyebrow">Latest work</p>
+          <h3>Learning Journey</h3>
+          <p>From writing my first &lt;h1&gt; to passing an accessibility audit — the full story, checkpoint by checkpoint.</p>
+          <a class="card-link" href="projects.html">View projects →</a>
+        </article>
+        <article class="featured-card reveal">
+          <p class="card-eyebrow">API project</p>
+          <h3>Dev Bookshelf</h3>
+          <p>My favourite web development books, with live search powered by the Open Library API.</p>
+          <a class="card-link" href="bookshelf.html">Browse books →</a>
+        </article>
+        <article class="featured-card reveal">
+          <p class="card-eyebrow">Say hello</p>
+          <h3>Get In Touch</h3>
+          <p>Interested in collaborating or just want to talk about web dev? I'd love to hear from you.</p>
+          <a class="card-link" href="contact.html">Contact me →</a>
+        </article>
+      </div>
+    </section>
   </main>
+
   <div id="site-footer"></div>
   <script src="js/nav.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

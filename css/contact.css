@@ -1,0 +1,85 @@
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 48rem;
+}
+@media (min-width: 48rem) {
+  .contact-layout { grid-template-columns: 1fr 1fr; }
+}
+
+/* ===== FORM ===== */
+.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.field-group { display: flex; flex-direction: column; gap: 0.375rem; }
+.field-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.field-group input,
+.field-group textarea {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  transition: border-color var(--transition);
+  width: 100%;
+}
+.field-group input:focus,
+.field-group textarea:focus {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 2px;
+  border-color: var(--accent-purple);
+}
+.field-group input[aria-invalid="true"],
+.field-group textarea[aria-invalid="true"] {
+  border-color: var(--accent-coral);
+}
+.field-group textarea { min-height: 140px; resize: vertical; }
+.field-error {
+  font-size: 0.8125rem;
+  color: var(--accent-coral);
+  min-height: 1.2em;
+}
+
+/* ===== SUCCESS STATE ===== */
+.success-msg {
+  display: none;
+  background: rgba(139,132,255,0.1);
+  border: 1px solid var(--accent-purple);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-primary);
+}
+.success-msg.visible { display: block; }
+.success-msg h2 { margin-bottom: 0.5rem; color: var(--text-primary); }
+.success-msg p { color: var(--text-secondary); }
+
+/* ===== SOCIAL LINKS ===== */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: border-color var(--transition), transform var(--transition);
+}
+.social-link:hover {
+  border-color: var(--accent-purple);
+  transform: translateX(4px);
+}
+.social-icon { font-size: 1.25rem; }
